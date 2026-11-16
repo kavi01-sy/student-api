@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    <p>Students from my API:</p>
+    <ul id="student-list"></ul>
+
+    <script>
+        async function loadStudents() {
+            const response = await fetch("http://127.0.0.1:8000/students");
+            const students = await response.json();
+
+            const list = document.getElementById("student-list");
+
+            for (const student of students) {
+                const item = document.createElement("li");
+                item.textContent = student.Student_Name + " - " + student.Email;
+                list.appendChild(item);
+            }
+        }
+
+        loadStudents();
+    </script>
+</body>
+</html>

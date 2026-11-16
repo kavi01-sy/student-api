@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 import sqlite3
 class NewStudent(BaseModel):
     Batch_ID: int
@@ -14,6 +15,14 @@ class NewStudent(BaseModel):
 
 
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.get("/")
 def home():
     return {"Message": "Hurray! API is Working!"}
