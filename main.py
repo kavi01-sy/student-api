@@ -1,8 +1,9 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.responses import FileResponse
-
 import sqlite3
+APP_NAME = os.environ["APP_NAME"]
 class NewStudent(BaseModel):
     Batch_ID: int
     Student_Name: str
@@ -31,7 +32,7 @@ def show_page():
 
 @app.get("/")
 def home():
-    return {"Message": "Hurray! API is Working!"}
+    return {"Message": f"{APP_NAME} is working!"}
 
 @app.get('/hello')
 def greet():
