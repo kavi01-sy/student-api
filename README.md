@@ -19,8 +19,6 @@ A small REST API built with FastAPI and SQLite for an NGO skilling programme (du
 
 ## What I learned
 
-## What I learned
-
 - **How an API works:** a client (browser, Postman or Zoho Creator) sends a request to a route, FastAPI runs the matching function, and the function talks to the database and returns JSON.
 - **Routes and methods:** the same path (`/students`) can do different things depending on the method. GET reads data, POST adds data.
 - **Talking to SQLite from Python:** connect → execute → fetchall → close, and `commit()` after any change, otherwise nothing is saved.
