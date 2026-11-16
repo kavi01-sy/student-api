@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.responses import FileResponse
 
 import sqlite3
 class NewStudent(BaseModel):
@@ -23,6 +24,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/page")
+def show_page():
+    return FileResponse("index.html")
+
 @app.get("/")
 def home():
     return {"Message": "Hurray! API is Working!"}
